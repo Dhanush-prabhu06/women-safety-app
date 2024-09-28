@@ -30,8 +30,8 @@ socketio = SocketIO(app, cors_allowed_origins="*")
 # /send-call
 
 # Twilio credentials
-TWILIO_ACCOUNT_SID = os.getenv('TWILIO_ACCOUNT_SID')
-auth_token = "..."
+account_sid = "AC7f41acdba81736c349ab2a60622b97a4"
+auth_token = "fc69f0823f5a7a4d031a48c6d9ab4440"
 client = Client(account_sid, auth_token)
 
 # Load the trained help detection model
@@ -42,9 +42,9 @@ except Exception as e:
     raise
 
 # Load the Wav2Vec2 model and feature extractor once
-# model_name = "ehcalabres/wav2vec2-lg-xlsr-en-speech-emotion-recognition"
-# model = Wav2Vec2ForSequenceClassification.from_pretrained(model_name)
-# feature_extractor = Wav2Vec2FeatureExtractor.from_pretrained(model_name)
+model_name = "ehcalabres/wav2vec2-lg-xlsr-en-speech-emotion-recognition"
+model = Wav2Vec2ForSequenceClassification.from_pretrained(model_name)
+feature_extractor = Wav2Vec2FeatureExtractor.from_pretrained(model_name)
 
 @app.route('/', methods=['GET'])
 def home():
